@@ -1,18 +1,23 @@
-import React from 'react'
-import './App.css'
+import React from 'react';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import BlogGrid from './components/BlogGrid';
+import About from './components/About';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import Toaster from './components/ui/sonner';
+import './App.css';
 
-import Blog from './components/Blog/Blog'
-import footer from './components/Footer/footer'
-import Navbar from './components/Navbar/Navbar'
-
-function App() {
-
+export default function App() {
   return (
-  <div className="container">
-    <Navbar />
-
-  </div>
-  )
+    <div className="app-container">
+      <Navbar />
+      <Hero />
+      <BlogGrid />
+      <About />
+      <Contact />
+      <Footer />
+      <Toaster />
+    </div>
+  );
 }
-
-export default App

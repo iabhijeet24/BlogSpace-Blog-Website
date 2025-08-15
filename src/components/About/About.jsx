@@ -1,0 +1,101 @@
+import React, { useEffect, useRef, useState } from 'react';
+import { ImageWithFallback } from './figma/ImageWithFallback';
+import { Code, Palette, Zap, Users } from 'lucide-react';
+import './About.css';
+
+export function About() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  const features = [
+    {
+      icon: Code,
+      title: "Web Development",
+      description: "Deep dives into modern web technologies, frameworks, and best practices."
+    },
+    {
+      icon: Palette,
+      title: "Design Insights",
+      description: "UI/UX design principles, trends, and creative inspiration for developers."
+    },
+    {
+      icon: Zap,
+      title: "Performance Tips",
+      description: "Optimization techniques to make your web applications lightning fast."
+    },
+    {
+      icon: Users,
+      title: "Community",
+      description: "Join a community of developers sharing knowledge and experiences."
+    }
+  ];
+
+  return (
+    <section id="about" ref={sectionRef} className={`about-section`}>
+      <div className="about-container">
+        <div className="about-grid">
+          {/* Content */}
+          <div className={`about-content ${isVisible ? 'fade-in-left' : 'fade-hidden-left'}`}>
+            <h2>About BlogSpace</h2>
+            <p>
+              BlogSpace is a platform dedicated to sharing knowledge about web development, 
+              design, and technology. Our goal is to provide high-quality content that helps 
+              developers and designers stay up-to-date with the latest trends and best practices.
+            </p>
+            <p>
+              Whether you're a beginner looking to learn the basics or an experienced 
+              developer seeking advanced techniques, you'll find valuable insights and 
+              practical tutorials here.
+            </p>
+
+            <div className="features-grid">
+              {features.map((feature, index) => (
+                <div
+                  key={index}
+                  className={`feature-card ${isVisible ? 'fade-in-up' : 'fade-hidden-up'}`}
+                  style={{ transitionDelay: `${(index + 2) * 200}ms` }}
+                >
+                  <div className="feature-icon">
+                    <feature.icon className="icon" />
+                  </div>
+                  <div>
+                    <h4>{feature.title}</h4>
+                    <p>{feature.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Image */}
+          <div className={`about-image-wrapper ${isVisible ? 'fade-in-right' : 'fade-hidden-right'}`}>
+            <div className="image-bg"></div>
+            <div className="image-container">
+              <ImageWithFallback
+                src="https://images.unsplash.com/photo-1510832758362-af875829efcf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGRlc2lnbiUyMHdvcmtzcGFjZXxlbnwxfHx8fDE3NTUxNzQ1Nzd8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                alt="Creative workspace"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
