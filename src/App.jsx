@@ -1,10 +1,10 @@
 import React from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import BlogGrid from './components/BlogGrid';
-import About from './components/About';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+import Navbar from './components/Navbar/Navbar';
+import Hero from './components/Hero/hero';
+import BlogGrid from './components/BlogGrid/Bloggrid';
+import About from './components/About/About';
+import Contact from './components/Contact/Contact';
+import Footer from './components/Footer/Footer';
 import Toaster from './components/ui/sonner';
 import './App.css';
 
