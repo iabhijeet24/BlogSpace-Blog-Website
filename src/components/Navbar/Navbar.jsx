@@ -1,18 +1,31 @@
-import React from 'react';
-import './Navbar.css'; 
+import React, { useState } from "react";
+import "./Navbar.css";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <header className="navbar">
+    <nav className="navbar">
       <div className="nav-container">
-        <h1 className="logo">My Blog</h1>
-        <nav className="nav-links">
-          <a href="#home">Home</a>
-          <a href="#blogs">Blogs</a>
-          <a href="#contact">Contact</a>
-        </nav>
+        {/* Logo */}
+        <div className="nav-logo">Bits n Bytes</div>
+
+        {/* Hamburger Menu */}
+        <div className="nav-toggle" onClick={() => setIsOpen(!isOpen)}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        {/* Links */}
+        <ul className={`nav-links ${isOpen ? "active" : ""}`}>
+          <li><a href="/">Home</a></li>
+          <li><a href="/blogs">Blogs</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
       </div>
-    </header>
+    </nav>
   );
 };
 
