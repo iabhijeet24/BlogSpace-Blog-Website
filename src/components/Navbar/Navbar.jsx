@@ -1,32 +1,75 @@
-import React, { useState } from "react";
-import "./Navbar.css";
+import React, { useState, useEffect } from 'react';
+import './Navbar.css';
 
-const Navbar = () => {
+export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navItems = [
+    { name: 'Home', href: '#home' },
+    { name: 'Blog', href: '#blog' },
+    { name: 'About', href: '#about' },
+    { name: 'Contact', href: '#contact' }
+  ];
+
+  const scrollToSection = (href) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+    setIsOpen(false);
+  };
 
   return (
-    <nav className="navbar">
-      <div className="nav-container">
+    <nav className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
+      <div className="navbar-container">
         {/* Logo */}
-        <div className="nav-logo">Bits n Bytes</div>
+        <div className="navbar-logo">BlogSpace</div>
 
-        {/* Hamburger Menu */}
-        <div className="nav-toggle" onClick={() => setIsOpen(!isOpen)}>
-          <span></span>
-          <span></span>
-          <span></span>
+        {/* Desktop Navigation */}
+        <div className="navbar-links">
+          {navItems.map((item) => (
+            <button
+              key={item.name}
+              onClick={() => scrollToSection(item.href)}
+              className="nav-link"
+            >
+              {item.name}
+              <span className="nav-underline"></span>
+            </button>
+          ))}
         </div>
 
-        {/* Links */}
-        <ul className={`nav-links ${isOpen ? "active" : ""}`}>
-          <li><a href="/">Home</a></li>
-          <li><a href="/blogs">Blogs</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/contact">Contact</a></li>
-        </ul>
+        {/* Mobile Menu Button */}
+        <div className="mobile-menu-btn" onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? '✖' : '☰'}
+        </div>
+      </div>
+
+      {/* Mobile Navigation */}
+      <div className={`mobile-menu ${isOpen ? 'open' : ''}`}>
+        {navItems.map((item) => (
+          <button
+            key={item.name}
+            onClick={() => scrollToSection(item.href)}
+            className="mobile-link"
+          >
+            {item.name}
+          </button>
+        ))}
       </div>
     </nav>
   );
-};
-
-export default Navbar;
+}
