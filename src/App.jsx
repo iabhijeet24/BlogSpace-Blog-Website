@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero"; 
-// import BlogGrid from "./components/BlogGrid/BlogGrid"; 
+import BlogGrid from "./components/BlogGrid/BlogGrid"; 
 import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
@@ -10,11 +10,9 @@ import "./App.css";
 export default function App() {
   return (
     <div className="app-container">
-      <div className="hello">My name is Abhijeet</div>
-
       <Navbar />
       <Hero />
-      {/* <BlogGrid /> */}
+      <BlogGrid />
       <About />
       <Contact />
       <Footer />

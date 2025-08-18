@@ -1,15 +1,15 @@
 import React from 'react';
-import { MailIcon } from "lucide-react";
+import { FaGithub, FaTwitter, FaLinkedin, FaEnvelope } from "react-icons/fa"; // ✅ react-icons
 import './Footer.css';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Github, href: '#', label: 'GitHub' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Mail, href: '#', label: 'Email' }
+    { icon: <FaGithub size={20} />, href: '#', label: 'GitHub' },
+    { icon: <FaTwitter size={20} />, href: '#', label: 'Twitter' },
+    { icon: <FaLinkedin size={20} />, href: '#', label: 'LinkedIn' },
+    { icon: <FaEnvelope size={20} />, href: '#', label: 'Email' }
   ];
 
   const navLinks = [
@@ -42,8 +42,15 @@ export default function Footer() {
           </p>
           <div className="social-links">
             {socialLinks.map((link, index) => (
-              <a key={index} href={link.href} aria-label={link.label} className="social-link">
-                <link.icon size={20} />
+              <a 
+                key={index} 
+                href={link.href} 
+                aria-label={link.label} 
+                className="social-link"
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                {link.icon}
               </a>
             ))}
           </div>

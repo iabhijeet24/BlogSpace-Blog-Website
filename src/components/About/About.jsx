@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Code, Palette, Zap, Users } from 'lucide-react'; 
-import { ImageWithFallback } from './figma/ImageWithFallback'; 
 import './About.css';
 
 export default function About() {
@@ -88,9 +87,10 @@ export default function About() {
           <div className={`about-image-wrapper ${isVisible ? 'fade-in-right' : 'fade-hidden-right'}`}>
             <div className="image-bg"></div>
             <div className="image-container">
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1510832758362-af875829efcf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGRlc2lnbiUyMHdvcmtzcGFjZXxlbnwxfHx8fDE3NTUxNzQ1Nzd8MA&ixlib=rb-4.1.0&q=80&w=1080"
+              <img
+                src="https://images.unsplash.com/photo-1510832758362-af875829efcf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
                 alt="Creative workspace"
+                className="about-image"
               />
             </div>
           </div>
