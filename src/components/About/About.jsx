@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
-import { Code, Palette, Zap, Users } from 'lucide-react';
+import { Code, Palette, Zap, Users } from 'lucide-react'; 
+import { ImageWithFallback } from './figma/ImageWithFallback'; 
 import './About.css';
 
-export function About() {
+export default function About() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
@@ -48,7 +48,7 @@ export function About() {
   ];
 
   return (
-    <section id="about" ref={sectionRef} className={`about-section`}>
+    <section id="about" ref={sectionRef} className="about-section">
       <div className="about-container">
         <div className="about-grid">
           {/* Content */}

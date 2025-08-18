@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 
-export function Navbar() {
+export default function Navbar() {   // ✅ default export
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -58,7 +58,6 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
       <div className={`mobile-menu ${isOpen ? 'open' : ''}`}>
         {navItems.map((item) => (
           <button

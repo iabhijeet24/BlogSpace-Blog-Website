@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Contact.css";
 
-export function Contact() {
+export default function Contact() {   // ✅ default export
   const [isVisible, setIsVisible] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const sectionRef = useRef(null);
@@ -27,7 +27,6 @@ export function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission delay
     await new Promise((resolve) => setTimeout(resolve, 2000));
 
     alert("Message sent successfully! We'll get back to you soon.");
@@ -37,12 +36,17 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" ref={sectionRef} className={`contact-section ${isVisible ? "visible" : ""}`}>
+    <section
+      id="contact"
+      ref={sectionRef}
+      className={`contact-section ${isVisible ? "visible" : ""}`}
+    >
       <div className="contact-container">
         <div className={`contact-header ${isVisible ? "visible" : ""}`}>
           <h2>Get In Touch</h2>
           <p>
-            Have a question, suggestion, or just want to say hello? We'd love to hear from you.
+            Have a question, suggestion, or just want to say hello? We'd love to
+            hear from you.
           </p>
         </div>
 
@@ -51,7 +55,8 @@ export function Contact() {
           <div className={`contact-info ${isVisible ? "visible" : ""}`}>
             <h3>Let's Connect</h3>
             <p>
-              We're always excited to connect with fellow developers, designers, and tech enthusiasts.
+              We're always excited to connect with fellow developers, designers,
+              and tech enthusiasts.
             </p>
             <div className="contact-links">
               <div>📧 hello@blogspace.dev</div>
@@ -72,7 +77,13 @@ export function Contact() {
                   </div>
                   <div className="form-group">
                     <label htmlFor="email">Email</label>
-                    <input id="email" name="email" type="email" required placeholder="your.email@example.com" />
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      placeholder="your.email@example.com"
+                    />
                   </div>
                 </div>
 
@@ -83,7 +94,13 @@ export function Contact() {
 
                 <div className="form-group">
                   <label htmlFor="message">Message</label>
-                  <textarea id="message" name="message" rows="6" required placeholder="Tell us more..."></textarea>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="6"
+                    required
+                    placeholder="Tell us more..."
+                  ></textarea>
                 </div>
 
                 <button type="submit" disabled={isSubmitting}>

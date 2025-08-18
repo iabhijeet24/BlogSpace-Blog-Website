@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Twitter, Linkedin, Mail } from 'lucide-react';
+import { MailIcon } from "lucide-react";
 import './Footer.css';
 
 export default function Footer() {

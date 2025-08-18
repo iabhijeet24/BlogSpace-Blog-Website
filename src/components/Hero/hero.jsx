@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Hero.css';
 
-export function Hero() {
+export default function Hero() {   // ✅ now it's default
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
