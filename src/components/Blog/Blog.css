@@ -4,6 +4,7 @@
   border: 1px solid var(--border-color);
   background: var(--card-bg);
   overflow: hidden;
+  border-radius: 7px;
 }
 
 .blog-card:hover {
@@ -64,6 +65,7 @@
 }
 
 .blog-card-content {
+  padding: 13px;
   padding-top: 0;
 }
 
@@ -77,6 +79,7 @@
 }
 
 .blog-card-footer {
+  font-family: 'Poppins', sans-serif;
   display: flex;
   justify-content: space-between;
   font-size: 0.875rem;

@@ -102,8 +102,7 @@ export default function BlogGrid() {
         <div className="blog-grid-header">
           <h2>Latest Blog Posts</h2>
           <p>
-            Insights, tutorials, and stories from the world of web development
-            and design.
+            Insights, tutorials, and stories from the world of technology and design.
           </p>
         </div>
 
