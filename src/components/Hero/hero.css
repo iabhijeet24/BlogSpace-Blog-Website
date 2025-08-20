@@ -62,7 +62,7 @@
   padding: 15px 30px;
   font-size: 1.1rem;
   border: none;
-  border-radius: 30px;
+  border-radius: 40px;
   background: #ffb347;
   color: #111;
   cursor: pointer;
@@ -71,21 +71,9 @@
 
 .explore-btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(255, 179, 71, 0.5);
-}
-
-.scroll-indicator {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.5rem;
-  cursor: pointer;
-  animation: bounce 1.5s infinite;
-}
-
-.scroll-indicator:hover {
-  color: #ffb347;
+box-shadow: 
+  0 5px 25px rgba(255, 179, 71, 0.6),
+  0 0 40px rgba(255, 179, 71, 0.4);
 }
 
 @keyframes bounce {

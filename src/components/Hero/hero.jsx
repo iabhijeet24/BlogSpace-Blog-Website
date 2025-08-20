@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Hero.css';
 
-export default function Hero() {   // ✅ now it's default
+export default function Hero() {   
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -42,10 +42,6 @@ export default function Hero() {   // ✅ now it's default
           Explore Blog Posts
         </button>
 
-        {/* Scroll indicator */}
-        <div className="scroll-indicator" onClick={scrollToBlogs}>
-          ↓
-        </div>
       </div>
     </section>
   );
