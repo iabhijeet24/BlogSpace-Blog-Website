@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "./components/Navbar/Navbar";
-import Hero from "./components/Hero/Hero"; 
+import Hero from "./components/Hero/hero"
 import BlogGrid from "./components/BlogGrid/BlogGrid"; 
 import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";

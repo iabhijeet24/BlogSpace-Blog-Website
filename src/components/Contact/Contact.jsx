@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Contact.css";
 
-export default function Contact() {   // ✅ default export
+export default function Contact() {  
   const [isVisible, setIsVisible] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const sectionRef = useRef(null);
