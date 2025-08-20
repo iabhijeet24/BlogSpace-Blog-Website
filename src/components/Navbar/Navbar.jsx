@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 
-export default function Navbar() {   // ✅ default export
+export default function Navbar() {   
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -16,8 +16,8 @@ export default function Navbar() {   // ✅ default export
 
   const navItems = [
     { name: 'Home', href: '#home' },
-    { name: 'Blog', href: '#blog' },
-    { name: 'About', href: '#about' },
+    { name: 'Blogs', href: '#blog' },
+    { name: 'About us', href: '#about' },
     { name: 'Contact', href: '#contact' }
   ];
 
@@ -39,18 +39,19 @@ export default function Navbar() {   // ✅ default export
         <div className="navbar-logo">BlogSpace</div>
 
         {/* Desktop Navigation */}
-        <div className="navbar-links">
-          {navItems.map((item) => (
-            <button
-              key={item.name}
-              onClick={() => scrollToSection(item.href)}
-              className="nav-link"
-            >
-              {item.name}
-              <span className="nav-underline"></span>
-            </button>
-          ))}
-        </div>
+<div className="navbar-links">
+  {navItems.map((item) => (
+    <button
+      key={item.name}
+      onClick={() => scrollToSection(item.href)}
+      className={`nav-link ${scrolled ? "nav-link-scrolled" : ""}`}
+    >
+      {item.name}
+      <span className="nav-underline"></span>
+    </button>
+  ))}
+</div>
+
 
         {/* Mobile Menu Button */}
         <div className="mobile-menu-btn" onClick={() => setIsOpen(!isOpen)}>
