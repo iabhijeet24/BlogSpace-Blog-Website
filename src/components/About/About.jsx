@@ -69,13 +69,13 @@ export default function About() {
                 <div
                   key={index}
                   className={`feature-card ${isVisible ? 'fade-in-up' : 'fade-hidden-up'}`}
-                  style={{ transitionDelay: `${(index + 2) * 200}ms` }}
+                  style={{ transitionDelay: `${(index + 2) * 0}ms` }}
                 >
                   <div className="feature-icon">
                     <feature.icon className="icon" />
                   </div>
                   <div>
-                    <h4>{feature.title}</h4>
+                    <h4 className='featureHeading'>{feature.title}</h4>
                     <p>{feature.description}</p>
                   </div>
                 </div>
