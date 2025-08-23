@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 .contact-section {
   padding: 80px 20px;
   transition: all 1s ease;
   opacity: 0;
   transform: translateY(30px);
+  font-family: 'Poppins', sans-serif;
 }
 
 .contact-section.visible {
@@ -87,6 +90,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  margin: 5px;
 }
 
 .form-group label {
@@ -97,7 +101,6 @@
 .form-group input,
 .form-group textarea {
   padding: 10px;
-  border: 1px solid #ccc;
   border-radius: 6px;
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
@@ -117,6 +120,7 @@ button {
   border-radius: 6px;
   cursor: pointer;
   transition: transform 0.3s ease, background 0.3s ease;
+  margin: 5px;
 }
 
 button:hover {
