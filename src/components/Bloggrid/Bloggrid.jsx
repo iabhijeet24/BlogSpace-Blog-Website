@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import BlogCard from "../Blog/Blog";
-import "./BlogGrid.css";
+import "./Bloggrid.css";
 
 export default function BlogGrid() {
   const [isVisible, setIsVisible] = useState(false);
