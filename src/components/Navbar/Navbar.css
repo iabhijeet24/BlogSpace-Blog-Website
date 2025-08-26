@@ -1,4 +1,4 @@
-/* Navbar base */
+/* ================= NAVBAR BASE ================= */
 .navbar {
   position: fixed;
   top: 0;
@@ -7,7 +7,7 @@
   z-index: 50;
   background: transparent;
   transition: all 0.3s ease-in-out;
-  padding: 0px 10px
+  padding: 0 10px;
 }
 
 .navbar-scrolled {
@@ -16,10 +16,10 @@
 }
 
 .nav-link-scrolled {
-  color: #333; 
+  color: #333;
 }
 
-/* Container */
+/* ================= CONTAINER ================= */
 .navbar-container {
   max-width: 1200px;
   margin: auto;
@@ -30,7 +30,7 @@
   align-items: center;
 }
 
-/* Logo */
+/* ================= LOGO ================= */
 .navbar-logo {
   color: #0070f3;
   font-size: 1.9rem;
@@ -38,7 +38,7 @@
   cursor: pointer;
 }
 
-/* Desktop Links */
+/* ================= DESKTOP LINKS ================= */
 .navbar-links {
   display: flex;
   gap: 1rem;
@@ -48,39 +48,63 @@
   position: relative;
   background: none;
   border: none;
+  outline: none;
+  box-shadow: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
   color: #f0f0f0;
   font-size: 1.2rem;
   cursor: pointer;
   padding: 0.5rem;
   transition: color 0.3s ease-in-out;
+
+  /* Prevent mobile blue highlight */
+  -webkit-tap-highlight-color: transparent;
 }
 
-.nav-link:hover {
-  color: #0070f3;
+/* Kill default focus box across browsers */
+.nav-link:focus,
+.nav-link:focus-visible,
+.nav-link:active {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
-.nav-underline {
+/* Firefox button reset */
+.nav-link::-moz-focus-inner {
+  border: 0;
+}
+
+/* Underline effect */
+.nav-link::after {
+  content: "";
   position: absolute;
-  bottom: 0;
   left: 0;
-  height: 2px;
-  /* background: #0070f3; */
+  bottom: 0;
+  height: 5px;
+  border-radius: 5px;
   width: 0;
+  background: #0070f3;
   transition: width 0.3s ease-in-out;
 }
 
-.nav-link:hover .nav-underline {
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
   width: 100%;
 }
 
-/* Mobile Menu Button */
+/* ================= MOBILE MENU BUTTON ================= */
 .mobile-menu-btn {
   display: none;
   font-size: 1.5rem;
   cursor: pointer;
+
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* Mobile Menu */
+/* ================= MOBILE MENU ================= */
 .mobile-menu {
   display: none;
   flex-direction: column;
@@ -98,6 +122,12 @@
 .mobile-link {
   background: none;
   border: none;
+  outline: none;
+  box-shadow: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
   padding: 0.75rem;
   text-align: left;
   width: 100%;
@@ -105,26 +135,37 @@
   cursor: pointer;
   color: #333;
   transition: background 0.3s ease;
+
+  -webkit-tap-highlight-color: transparent;
 }
 
 .mobile-link:hover {
   background: #f0f0f0;
 }
 
-/* Responsive */
+/* Kill mobile focus outline */
+.mobile-link:focus,
+.mobile-link:focus-visible,
+.mobile-link:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.mobile-link::-moz-focus-inner {
+  border: 0;
+}
+
+/* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
   .navbar-links {
     display: none;
   }
-
   .mobile-menu-btn {
     display: block;
   }
 }
 
-
-
-
+/* Override scrolled nav-links */
 .nav-link.nav-link-scrolled {
   color: #333 !important;
 }

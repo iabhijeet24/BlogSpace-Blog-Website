@@ -18,10 +18,13 @@ export default function Navbar() {
     { name: 'Home', href: '#home' },
     { name: 'Blogs', href: '#blog' },
     { name: 'About us', href: '#about' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'Contact', href: '#contact' },
+    { name: 'Others', href: '#others' }
+
   ];
 
-  const scrollToSection = (href) => {
+  const scrollToSection = (e, href) => {
+    e.preventDefault(); // prevent default jump
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({
@@ -29,7 +32,7 @@ export default function Navbar() {
         block: 'start'
       });
     }
-    setIsOpen(false);
+    setIsOpen(false); // close mobile menu
   };
 
   return (
@@ -39,35 +42,39 @@ export default function Navbar() {
         <div className="navbar-logo">BlogSpace</div>
 
         {/* Desktop Navigation */}
-<div className="navbar-links">
-  {navItems.map((item) => (
-    <button
-      key={item.name}
-      onClick={() => scrollToSection(item.href)}
-      className={`nav-link ${scrolled ? "nav-link-scrolled" : ""}`}
-    >
-      {item.name}
-      <span className="nav-underline"></span>
-    </button>
-  ))}
-</div>
-
+        <div className="navbar-links">
+          {navItems.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              onClick={(e) => scrollToSection(e, item.href)}
+              className={`nav-link ${scrolled ? "nav-link-scrolled" : ""}`}
+            >
+              {item.name}
+            </a>
+          ))}
+        </div>
 
         {/* Mobile Menu Button */}
-        <div className="mobile-menu-btn" onClick={() => setIsOpen(!isOpen)}>
+        <div 
+          className="mobile-menu-btn" 
+          onClick={() => setIsOpen(!isOpen)}
+        >
           {isOpen ? '✖' : '☰'}
         </div>
       </div>
 
+      {/* Mobile Menu */}
       <div className={`mobile-menu ${isOpen ? 'open' : ''}`}>
         {navItems.map((item) => (
-          <button
+          <a
             key={item.name}
-            onClick={() => scrollToSection(item.href)}
+            href={item.href}
+            onClick={(e) => scrollToSection(e, item.href)}
             className="mobile-link"
           >
             {item.name}
-          </button>
+          </a>
         ))}
       </div>
     </nav>
