@@ -1,4 +1,5 @@
 import React from "react";
+
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/hero"
 import BlogGrid from "./components/Bloggrid/Bloggrid"; 

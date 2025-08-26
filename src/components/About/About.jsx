@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Code, Palette, Zap, Users } from 'lucide-react'; 
+import { FaCode, FaPalette, FaBolt, FaUsers } from "react-icons/fa";   // using react-icons
 import './About.css';
 
 export default function About() {
@@ -25,22 +25,22 @@ export default function About() {
 
   const features = [
     {
-      icon: Code,
+      icon: FaCode,
       title: "Web Development",
       description: "Deep dives into modern web technologies, frameworks, and best practices."
     },
     {
-      icon: Palette,
+      icon: FaPalette,
       title: "Design Insights",
       description: "UI/UX design principles, trends, and creative inspiration for developers."
     },
     {
-      icon: Zap,
+      icon: FaBolt,
       title: "Performance Tips",
       description: "Optimization techniques to make your web applications lightning fast."
     },
     {
-      icon: Users,
+      icon: FaUsers,
       title: "Community",
       description: "Join a community of developers sharing knowledge and experiences."
     }
@@ -69,7 +69,7 @@ export default function About() {
                 <div
                   key={index}
                   className={`feature-card ${isVisible ? 'fade-in-up' : 'fade-hidden-up'}`}
-                  style={{ transitionDelay: `${(index + 2) * 0}ms` }}
+                  style={{ transitionDelay: `${(index + 1) * 150}ms` }}  // nice stagger effect
                 >
                   <div className="feature-icon">
                     <feature.icon className="icon" />
