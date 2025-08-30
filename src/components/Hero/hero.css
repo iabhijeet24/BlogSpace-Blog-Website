@@ -44,9 +44,13 @@
 }
 
 .hero-content h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  line-height: 1.2;
+  word-wrap: break-word;  
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
+
 
 .highlight {
   color: #ffb347;
@@ -80,4 +84,117 @@ box-shadow:
 @keyframes bounce {
   0%, 100% { transform: translate(-50%, 0); }
   50% { transform: translate(-50%, -10px); }
+}
+
+
+
+
+
+
+/* -----------------RESPONSIVE DESIGN ------------------- */
+
+
+/* Base (mobile-first) already works well. Now adjust for smaller screens */
+.hero-content h1 {
+  font-size: 2rem;   /* smaller default for mobile */
+  line-height: 1.2;
+}
+
+.hero-content p {
+  font-size: 1rem;
+}
+
+.explore-btn {
+  padding: 12px 20px;
+  font-size: 1rem;
+}
+
+/* Small phones (max 480px) */
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 0 1rem;
+    text-align: center;
+  }
+
+  .hero-content {
+    padding: 10px;
+    max-width: 90%;
+  }
+
+  .hero-content h1 {
+    font-size: 1.75rem;
+  }
+
+  .hero-content p {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+
+  .explore-btn {
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 40px;
+  background: #ffb347;
+  color: #111;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+}
+
+/* Tablets (481px – 768px) */
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 15px;
+    max-width: 95%;
+  }
+
+  .hero-content h1 {
+    font-size: 2.25rem;
+  }
+
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+
+  .explore-btn {
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 40px;
+  background: #ffb347;
+  color: #111;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+}
+
+/* Larger screens (≥1024px) keep your existing desktop look */
+@media (min-width: 1024px) {
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+
+  .hero-content p {
+    font-size: 1.25rem;
+  }
+
+.explore-btn {
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 40px;
+  background: #ffb347;
+  color: #111;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+}
+
+/* Background image handling */
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;  
 }

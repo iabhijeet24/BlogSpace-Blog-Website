@@ -24,7 +24,7 @@ export default function Navbar() {
   ];
 
   const scrollToSection = (e, href) => {
-    e.preventDefault(); // prevent default jump
+    e.preventDefault(); 
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({
