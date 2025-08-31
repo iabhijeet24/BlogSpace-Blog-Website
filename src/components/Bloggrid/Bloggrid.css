@@ -51,6 +51,13 @@
   }
 }
 
+@media (min-width: 425px) {
+  .container {
+    padding: 10px 50px !important;
+  }
+}
+
+
 .blog-grid-item {
   opacity: 0;
   transform: translateY(2rem);
